@@ -32,6 +32,7 @@ const Streams = () => {
 
 	return (
 		<StyledMain>
+			<h3>Check out these streams!</h3>
 			<StyledGrid>
 				{vtuberData.map(
 					(v, index) =>

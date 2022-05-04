@@ -1,23 +1,22 @@
 import React from 'react';
+import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { BiggerButton } from '../components/StyledButton';
 import StyledMain from '../components/StyledMain';
+import BannerImage from '../static/img/banner.png';
 
 const StyledBanner = styled.img`
-	width: 100%;
 	bottom: 0;
+	height: 48.7vh;
+	object-fit: cover;
+	object-position: top;
+	width: 100%;
 	display: flex;
 	@media (max-width: 768px) {
 		position: fixed;
 		width: 200%;
 	}
 `;
-
-// const StyledMain = styled.main`
-// 	max-width: 72rem;
-// 	margin-left: auto;
-// 	margin-right: auto;
-// `;
 
 const StyledMainDiv = styled.div`
 	margin: auto;
@@ -40,42 +39,44 @@ const StyledMainDiv = styled.div`
 	}
 `;
 
-// const Button = styled.button`
-// 	border: none;
-// 	padding: 0.3rem 0.6rem;
-// 	background-color: ${(props) => (props.primary ? '#f97316' : '#ffedd5')};
-// 	color: ${(props) => (props.primary ? 'white' : 'black')};
-// 	border-radius: 0.25rem;
-// 	font-weight: 700;
-// `;
-
-// const BiggerButton = styled(Button)`
-// 	padding: 1rem 1rem;
-// 	@media (max-width: 768px) {
-// 		padding: 0.8rem 0.8rem;
-// 	}
-// `;
+const DivButtons = styled.div`
+	display: flex;
+	gap: 1rem;
+	justify-content: center;
+`;
 
 const Home = () => {
+	let navigate = useNavigate();
+
 	return (
 		<>
 			<StyledMain>
 				<StyledMainDiv>
 					<h1>Never miss a stream!</h1>
 					<p>
-						With Nijistreams you can check if your favorite Liver is currently
-						streaming
+						Check if your favorite liver is streaming, and if not, just binge watch
+						some videos in the meantime ;^)
 					</p>
-					<div>
-						<BiggerButton primary>Browse streams</BiggerButton>
-						<BiggerButton>Browse videos</BiggerButton>
-					</div>
+					<DivButtons>
+						<BiggerButton
+							primary
+							onClick={() => {
+								navigate('/streams');
+							}}
+						>
+							Browse streams
+						</BiggerButton>
+						<BiggerButton
+							onClick={() => {
+								navigate('/videos');
+							}}
+						>
+							Browse videos
+						</BiggerButton>
+					</DivButtons>
 				</StyledMainDiv>
 			</StyledMain>
-			<StyledBanner
-				src='https://images.microcms-assets.io/assets/5694fd90407444338a64d654e407cc0e/83342244bfec488d94cc1e0e3b477b9c/NIJISANJI_ALL_transparent_withCR.png?fit=clip&w=1366&dpr=2'
-				alt=''
-			/>
+			<StyledBanner src={BannerImage} alt="Most of Nijisanji's vtubers" />
 		</>
 	);
 };
