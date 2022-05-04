@@ -18,6 +18,7 @@ const StyledGrid = styled.div`
 
 const Streams = () => {
 	const [vtuberData, setVtuberData] = useState([]);
+	const [liveCount, setLiveCount] = useState(0);
 
 	const apiCall = async () => {
 		const { data } = await axios.get('https://holodex.net/api/v2/live', {
@@ -34,9 +35,10 @@ const Streams = () => {
 		<StyledMain>
 			<h3>Check out these streams!</h3>
 			<StyledGrid>
-				{vtuberData.map(
-					(v, index) =>
-						v.live_viewers !== 0 && (
+				{vtuberData.map((v, index) => {
+					if (v.live_viewers !== 0) {
+						setLiveCount((prev) => (prev += 1));
+						return (
 							<VtuberCard
 								key={index}
 								name={v.channel.english_name}
@@ -48,9 +50,11 @@ const Streams = () => {
 								live_viewers={v.live_viewers}
 								channelId={v.channel.id}
 							/>
-						)
-				)}
+						);
+					}
+				})}
 			</StyledGrid>
+			{!(liveCount) && 'Looks like there is no one live right now :('}
 		</StyledMain>
 	);
 };
