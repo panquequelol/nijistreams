@@ -3,9 +3,10 @@ import { useNavigate } from 'react-router-dom';
 import styled from 'styled-components';
 import { BiggerButton } from '../components/StyledButton';
 import StyledMain from '../components/StyledMain';
-import BannerImage from '../static/img/banner.png';
+import BannerImage from '../static/img/bannerOptimized.webp';
 
 const StyledBanner = styled.img`
+	z-index: -10;
 	bottom: 0;
 	height: 48.7vh;
 	object-fit: cover;
@@ -14,7 +15,13 @@ const StyledBanner = styled.img`
 	display: flex;
 	@media (max-width: 768px) {
 		position: fixed;
+		height: 30vh;
 		width: 200%;
+	}
+	@media (max-width: 375px) {
+		position: fixed;
+		height: 25vh;
+		width: 250%;
 	}
 `;
 
