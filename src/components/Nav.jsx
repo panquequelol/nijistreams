@@ -6,6 +6,12 @@ const StyledNav = styled.nav`
 	display: flex;
 	justify-content: space-around;
 	align-items: center;
+	border-bottom: solid 0.15rem;
+	border-color: #fdba74;
+	background-color: #fed7aa;
+	position: sticky;
+	top: 0;
+	opacity: 0.95;
 
 	& h1 {
 		font-size: 1.25rem; /* 20px */
@@ -22,7 +28,7 @@ const StyledNav = styled.nav`
 	}
 	& li:hover {
 		color: #404040;
-		background-color: #fed7aa;
+		background-color: #fdba74;
 	}
 	& a {
 		text-decoration: none;
