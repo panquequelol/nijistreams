@@ -1,6 +1,6 @@
 > 🚧 This project is still a work in progress
 
-![Nijistreams landing](https://github.com/caceresrene/nijistreams/blob/main/src/static/img/ladingDemo.png?raw=true)
+![Nijistreams landing](https://github.com/caceresrene/nijistreams/blob/main/src/static/img/landingDemo.png?raw=true)
 
 # To-do
 
